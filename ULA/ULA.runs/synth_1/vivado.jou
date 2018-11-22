@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Nov 22 19:08:25 2018
+# Process ID: 10137
+# Current directory: /home/thiago/Área de Trabalho/ULA/ULA.runs/synth_1
+# Command line: vivado -log Mux_display.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Mux_display.tcl
+# Log file: /home/thiago/Área de Trabalho/ULA/ULA.runs/synth_1/Mux_display.vds
+# Journal file: /home/thiago/Área de Trabalho/ULA/ULA.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source Mux_display.tcl -notrace

@@ -1,0 +1,81 @@
+--library IEEE;
+--use IEEE.STD_LOGIC_1164.ALL;
+
+--entity MUX_Display is
+--    Port (clk  : in  STD_LOGIC;
+--          dig0 : in  STD_LOGIC_VECTOR (3 downto 0);
+--          dig1 : in  STD_LOGIC_VECTOR (3 downto 0);
+--          sel  : in  STD_LOGIC;
+--          seg  : out STD_LOGIC_VECTOR (0 TO 6);
+--          an   : out std_logic_vector (3 downto 0));
+--end MUX_Display;
+
+--architecture Behavioral of MUX_Display is
+--    signal s                   : STD_LOGIC_VECTOR (4 downto 0);
+--    signal bin                 : std_logic_vector (11 downto 0);
+--    signal clk0                : std_logic;
+--    signal dig                 : std_logic_vector (3 downto 0); 
+--    signal aux1,aux2,aux3,aux0 : std_logic_vector (3 downto 0);
+--    constant clk_div           : integer := 500_000;
+--    component bin_to_bcd_decoder is
+--        Port (binary : in  std_logic_vector (11 downto 0); -- binary number
+--              dig0   : out std_logic_vector (3 downto 0);  -- rigth digit
+--              dig1   : out std_logic_vector (3 downto 0);  -- middle right digit
+--              dig2   : out std_logic_vector (3 downto 0);  -- middle left digit
+--              dig3   : out std_logic_vector (3 downto 0)); -- left digit
+--    end component;
+--    component Sum_Sub is
+--        Port ( a   : in  STD_LOGIC_VECTOR (3 downto 0);
+--               b   : in  STD_LOGIC_VECTOR (3 downto 0);
+--               sel : in  STD_LOGIC;
+--               s   : out STD_LOGIC_VECTOR (4 downto 0));
+--    end component;
+--begin
+--    operador   : Sum_Sub port map(dig0,dig1,sel,s);
+--    bin_to_bcd : bin_to_bcd_decoder port map(bin,aux0,aux1,aux2,aux3);
+--    --Divisor de Clock
+--    process(clk)
+--        variable count : integer :=clk_div;
+--    begin
+--        if rising_edge(clk) then
+--            if count=0 then
+--                clk0 <= '1';
+--                count := clk_div;
+--            else 
+--                count := count-1;
+--            end if;
+--        end if;
+--    end process;
+--    --MUX
+--    process(clk0)
+--        variable count : integer :=0;
+--    begin
+--        if count=0 then
+--            dig <= aux0;
+--            an <= "1110";
+--            count := count+1;
+--        elsif count=1 then
+--                dig <= aux1;
+--                an <= "1101";
+--                count := 0;
+--        end if;
+--    end process;
+--    bin <= "0000000" & s;
+--    --Decodificador
+--    process(dig)
+--    begin
+--        case dig is
+--            when "0000" => seg <= "0000001";    
+--            when "0001" => seg <= "1001111";
+--            when "0010" => seg <= "0010010"; 
+--            when "0011" => seg <= "0000110";
+--            when "0100" => seg <= "1001100";
+--            when "0101" => seg <= "0100100"; 
+--            when "0110" => seg <= "0100000"; 
+--            when "0111" => seg <= "0001111"; 
+--            when "1000" => seg <= "0000000";      
+--            when "1001" => seg <= "0000100"; 
+--            when others => seg <= "1111111"; 
+--        end case;
+--    end process;
+--end Behavioral;
